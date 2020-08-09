@@ -4,6 +4,7 @@ import Input from '../../components/Input';
 import warningIcon from '../../assets/images/icons/warning.svg';
 
 import './styles.css';
+import Textarea from '../../components/Textarea';
 
 const TeacherForm = () => {
   return (
@@ -22,6 +23,9 @@ const TeacherForm = () => {
           <Input name="avatar" label="Avatar" />
 
           <Input name="whatsapp" label="Whatsapp" />
+
+          <Textarea name="bio" label="Biografia" />
+          
         </fieldset>
 
         <fieldset>
