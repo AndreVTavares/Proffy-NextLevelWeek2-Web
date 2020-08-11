@@ -1,34 +1,40 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import whatsIcon from '../../assets/images/icons/whatsapp.svg';
 
 import './styles.css';
 
-const TeacherItem = () => {
+export interface Teacher {
+  name: string;
+  id: number;
+  avatar: string;
+  subject: string;
+  bio: string;
+  cost: number;
+  whatsapp: string;
+}
+
+interface TeacherItemProps {
+  teacher: Teacher;
+}
+
+const TeacherItem: React.FC<TeacherItemProps> = ({ teacher }) => {
   return (
     <article className="teacher-item">
       <header>
-        <img
-          src="https://avatars2.githubusercontent.com/u/31252029?s=460&u=f18e74c573f5755d6d266c06af0809c2ab52d526&v=4"
-          alt="André Tavares"
-        />
+        <img src={teacher.avatar} alt={teacher.name} />
         <div>
-          <strong>André Tavares</strong>
-          <span>Transfiguração</span>
+          <strong>{teacher.name}</strong>
+          <span>{teacher.subject}</span>
         </div>
       </header>
 
-      <p>
-        Mestre em transfiguração discipulo de Minerva McGonagall.
-        <br /> <br />
-        Apaixonado pela magia de mudança de formas e os ensinamentos para melhor
-        utilizar desse artificio mágico.
-      </p>
+      <p>{teacher.bio}</p>
 
       <footer>
         <p>
           Preço/hora:
-          <strong>R$ 83,00</strong>
+          <strong>R${teacher.cost}</strong>
         </p>
         <button type="button">
           <img src={whatsIcon} alt="whatsapp" />
